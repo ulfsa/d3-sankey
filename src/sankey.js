@@ -218,7 +218,10 @@ export default function Sankey() {
 
   function initializeNodeBreadths(columns) {
     const ky = min(columns, c => (y1 - y0 - (c.length - 1) * py) / sum(c, value));
-    for (const nodes of columns) {
+
+      console.log('  y0=' + y0 + ', y1=' + y1 + ', ky=' + ky + ', py=' + py)
+
+      for (const nodes of columns) {
       let y = y0;
       for (const node of nodes) {
         node.y0 = y;
@@ -226,11 +229,8 @@ export default function Sankey() {
 
         // ULF
         if (node.maxNodeTypeValue) {
-            console.log('node.maxNodeTypeValue ' + node.name + ' node.maxNodeTypeValue=' + node.maxNodeTypeValue);
-            console.log('  y0=' + y0);
+            console.log('> ' + node.name + ': ' + node.maxNodeTypeValue);
             console.log('  y=' + y)
-            console.log('  ky=' + ky)
-            console.log('  py=' + py)
             console.log('  after:y=' + (y + node.maxNodeTypeValue * ky + py));
             console.log('  after:would have have been y = node.y1 + py => ' + (node.y1 + py) + ' = ' + node.y1 + ' + ' + py);
           y = y + node.maxNodeTypeValue * ky + py;
