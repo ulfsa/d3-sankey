@@ -37,6 +37,7 @@ function find(nodeById, id) {
 }
 
 function computeLinkBreadths({nodes}) {
+  console.log('computeLinkBreadths...');
   for (const node of nodes) {
     let y0 = node.y0;
     let y1 = y0;
