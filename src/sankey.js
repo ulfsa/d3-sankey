@@ -228,7 +228,7 @@ export default function Sankey() {
         if (node.maxNodeTypeValue) {
           console.log('node.maxNodeTypeValue! before y=' + y + ', ky=' + ky + ', py=' + py + ', node.maxNodeTypeValue=' + node.maxNodeTypeValue);
           y = y + node.maxNodeTypeValue * ky + py;
-          console.log('node.maxNodeTypeValue! after y=' + y);
+            console.log('node.maxNodeTypeValue! after y=' + y + ' (would have been y = node.y1 + py ---->' + (node.y1+py) + ' = ' + node.y1 + ' + ' + py);
         }
         else {
           y = node.y1 + py;
