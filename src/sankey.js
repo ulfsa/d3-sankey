@@ -226,10 +226,12 @@ export default function Sankey() {
 
         // ULF
         if (node.maxNodeTypeValue) {
-            y = y + node.maxNodeTypeValue * ky + py;
+          console.log('node.maxNodeTypeValue! before y=' + y + ', ky=' + ky + ', py=' + py + ', node.maxNodeTypeValue=' + node.maxNodeTypeValue);
+          y = y + node.maxNodeTypeValue * ky + py;
+          console.log('node.maxNodeTypeValue! after y=' + y);
         }
         else {
-            y = node.y1 + py;
+          y = node.y1 + py;
         }
 
         for (const link of node.sourceLinks) {
