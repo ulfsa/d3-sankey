@@ -197,7 +197,7 @@ export default function Sankey() {
     const columns = new Array(x);
       for (const node of nodes) {
         let i = 0;
-        if (node.fixedLayer) {
+        if (node.fixedLayer) { // ULF
             console.log('found fixedLayer ' + node.fixedLayer);
             i = node.fixedLayer;
         }
@@ -222,7 +222,13 @@ export default function Sankey() {
       let y = y0;
       for (const node of nodes) {
         node.y0 = y;
-        node.y1 = y + node.value * ky;
+          // ULF
+          if (node.maxNodeTypeValue) {
+              node.y1 = y + node.maxNodeTypeValue * ky;
+          }
+          else {
+              node.y1 = y + node.value * ky;
+          }
         y = node.y1 + py;
         for (const link of node.sourceLinks) {
           link.width = link.value * ky;
