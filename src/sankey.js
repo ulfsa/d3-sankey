@@ -243,12 +243,14 @@ export default function Sankey() {
           link.width = link.value * ky;
         }
       }
+    /*
       y = (y1 - y + py) / (nodes.length + 1);
       for (let i = 0; i < nodes.length; ++i) {
         const node = nodes[i];
         node.y0 += y * (i + 1);
         node.y1 += y * (i + 1);
       }
+      */
       reorderLinks(nodes);
     }
   }
