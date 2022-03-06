@@ -259,12 +259,14 @@ export default function Sankey() {
     const columns = computeNodeLayers(graph);
     py = Math.min(dy, (y1 - y0) / (max(columns, c => c.length) - 1));
     initializeNodeBreadths(columns);
+    /* ULF 
     for (let i = 0; i < iterations; ++i) {
       const alpha = Math.pow(0.99, i);
       const beta = Math.max(1 - alpha, (i + 1) / iterations);
       relaxRightToLeft(columns, alpha, beta);
       relaxLeftToRight(columns, alpha, beta);
     }
+    */
   }
 
   // Reposition each node based on its incoming (target) links.
